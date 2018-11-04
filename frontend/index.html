@@ -12,5 +12,17 @@
     <input type="checkbox" name="Vegan" value="Vegan"> Vegan<br>
     <input type="checkbox" name="Gluten Free" value="Gluten Free"> Gluten Free<br>
     <input type="checkbox" name="Vegetarian" value="Vegetarian"> Vegetarian<br>
-    
+    Gender:<br>
+    <input type="radio" name="gender" value="male" checked> Male<br>
+    <input type="radio" name="gender" value="female"> Female<br>
+    <input type="radio" name="gender" value="Fake News"> Fake News
+    <input type="button" onclick="submission()" value="Submit">
+  </form>
+  
+  <script>
+function submission() {
+    document.getElementById("input").submit();
+}
+</script>
+  
 </html>
