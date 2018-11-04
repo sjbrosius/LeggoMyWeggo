@@ -4,12 +4,12 @@ def convertToInches(ft, inches):
 
 
 def maleBMR(weight, feet, inches, age):
-    bmr = 66 + (63 * weight) + (12.9 * convertToInches(feet, inches)) - (6.8 * age)
+    bmr = 66 + (6.3 * weight) + (12.7 * convertToInches(feet, inches)) - (6.8 * age)
     return bmr
 
 
 def femaleBMR(weight, feet, inches, age):
-    bmr = 655 + (4.3 * weight) + (12.9 * convertToInches(feet, inches)) - (4.7 * age)
+    bmr = 655 + (4.3 * weight) + (4.7 * convertToInches(feet, inches)) - (4.7 * age)
     return bmr
 
 
@@ -47,7 +47,7 @@ def calNeedsGain(bmr, activityLev):
 
 
 
-def personFem(gender,goal, weight, feet, inches, age, activityLev):
+def person(gender,goal, weight, feet, inches, age, activityLev):
     nutrition_dict = {}
     suggested_cal_intake = 0
     fat_intake = 65
@@ -68,6 +68,9 @@ def personFem(gender,goal, weight, feet, inches, age, activityLev):
         suggested_cal_intake = calNeedsGain(base_bmr, activityLev)
     if goal == 'maintain':
         suggested_cal_intake = calNeedsMaint(base_bmr, activityLev)
+
+    suggested_cal_intake /= 100
+    suggested_cal_intake = 100 * int(round(suggested_cal_intake))
 
     nutrition_dict["calories"] = suggested_cal_intake
     nutrition_dict["fat"] = fat_intake
